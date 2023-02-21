@@ -14,8 +14,6 @@ class LuckyController extends AbstractController
     {
         $number = random_int(0, 100);
         return $this->render('bezoeker/home.html.twig',['number'=>$number]);
-
-
     }
 }
 
