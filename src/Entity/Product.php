@@ -19,10 +19,6 @@ class Product
     #[ORM\Column]
     private ?int $price = null;
 
-    #[ORM\ManyToOne(inversedBy: 'products')]
-    #[ORM\JoinColumn(nullable: false)]
-    private ?category $category = null;
-
     public function getId(): ?int
     {
         return $this->id;
@@ -48,18 +44,6 @@ class Product
     public function setPrice(int $price): self
     {
         $this->price = $price;
-
-        return $this;
-    }
-
-    public function getCategory(): ?category
-    {
-        return $this->category;
-    }
-
-    public function setCategory(?category $category): self
-    {
-        $this->category = $category;
 
         return $this;
     }
