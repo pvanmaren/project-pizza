@@ -12,4 +12,8 @@ class guestController extends AbstractController
 public function showHome():Response{
     return $this->render('bezoeker/home.html.twig');
 }
+
+
+
+
 }
