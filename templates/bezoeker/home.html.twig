@@ -45,9 +45,7 @@
     <p class="container-fluid text-center">
         Wij zijn gespecialiceerd in de italiaanse keuken met hoogtepunt de pizzas
     </p>
-    <p class="container-fluid text-center">
-        <i>Het woord "sushi" is afkomstig van "su", wat azijn betekent, en "shi" -- rijst</i>
-    </p>
+
     <p class="container-fluid text-center">
 
     </p>
@@ -55,31 +53,18 @@
     <!-- Cards -->
     <div class="container">
     <div class="row">
+        {% for product in products %}
 
-        <div class="col-sm-4">
+        <div class="col-4">
             <div class="card">
                 <div class="card-body">
-                    <img src="" alt="" class="img-fluid center" >
-                    <p class="card-text text-center"></p>
+                    <h4 class="card-text text-center">{{ product.name }}</h4>
+                    <div class="card-text">{{ product.img }}</div>
                 </div>
             </div>
         </div>
-        <div class="col-sm-4">
-            <div class="card">
-                <div class="card-body">
-                    <img src="img/sushi2.jpeg" alt="" class="img-fluid center" >
-                    <p class="card-text text-center"></p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-4">
-            <div class="card">
-                <div class="card-body">
-                    <img src="img/sushi1.jpeg" alt="" class="img-fluid center" >
-                    <p class="card-text text-center"></p>
-                </div>
-            </div>
-        </div>
+
+        {% endfor %}
     </div><br>
     </div>
     <!-- Footer -->

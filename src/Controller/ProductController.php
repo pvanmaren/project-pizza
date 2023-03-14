@@ -2,6 +2,7 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
 use App\Entity\Product;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -12,7 +13,7 @@ class ProductController extends AbstractController
 {
     #[Route('/products')]
     public function products(ManagerRegistry $doctrine) :Response {
-        $products=$doctrine->getRepository(Product::class)->findAll();
+        $products=$doctrine->getRepository(Category::class)->findAll();
         return $this->render('bezoeker/products.html.twig',['products'=>$products]);
     }
 }

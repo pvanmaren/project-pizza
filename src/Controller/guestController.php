@@ -2,6 +2,9 @@
 
 namespace App\Controller;
 
+use App\Entity\Category;
+use App\Entity\Product;
+use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
@@ -9,11 +12,8 @@ use Symfony\Component\Routing\Annotation\Route;
 class guestController extends AbstractController
 {
     #[Route('/', name: 'homepage')]
-public function showHome():Response{
-    return $this->render('bezoeker/home.html.twig');
-}
-
-
-
-
+    public function products(ManagerRegistry $doctrine) :Response {
+        $products=$doctrine->getRepository(Category::class)->findAll();
+        return $this->render('bezoeker/home.html.twig',['products'=>$products]);
+    }
 }
