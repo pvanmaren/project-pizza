@@ -2,7 +2,7 @@
 
 namespace App\Controller;
 
-use App\Entity\Task;
+use App\Entity\Order;
 use App\Form\TaskType;
 use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
@@ -21,10 +21,10 @@ class TaskController extends AbstractController
     }
 
     #[Route('/bestellen', name: 'app_task_form')]
-    public function TaskForm(Request $request, ManagerRegistry $doctrine): Response
+    public function OrderForm(Request $request, ManagerRegistry $doctrine): Response
     {
         $entityManager = $doctrine->getManager();
-        $task = new Task();
+        $task = new Order();
 
 
         $form = $this->createForm(TaskType::class, $task);

@@ -2,11 +2,10 @@
 
 namespace App\Form;
 
-use App\Entity\Task;
+use App\Entity\Order;
 
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\ChoiceType;
-use Symfony\Component\Form\Extension\Core\Type\DateType;
 use Symfony\Component\Form\Extension\Core\Type\SubmitType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
@@ -16,16 +15,19 @@ class TaskType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('task',ChoiceType::class,[
+            ->add('pizza',ChoiceType::class,[
                 'choices'  => [
                     'vleespizza' => 'vleespizza',
                     'vispizza' => 'vispizza',
                     'veggiepizza' => 'veggiepizza',
                 ],
             ])
-            ->add('dueDate',DateType::class, [
-                'label'=>'deadline',
-                'widget' => 'single_text',
+            ->add('size',ChoiceType::class,[
+                'choices'  => [
+                    '25 cm' => '25 cm',
+                    '35 cm' => '35 cm',
+                    'calzone' => 'calzone',
+                ],
             ])
             ->add('save', SubmitType::class)
         ;
@@ -34,7 +36,7 @@ class TaskType extends AbstractType
     public function configureOptions(OptionsResolver $resolver): void
     {
         $resolver->setDefaults([
-            'data_class' => Task::class,
+            'data_class' => Order::class,
         ]);
     }
 }
