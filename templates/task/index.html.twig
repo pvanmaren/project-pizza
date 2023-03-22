@@ -1,20 +1,41 @@
 {% extends 'base.html.twig' %}
 
-{% block title %}Hello TaskController!{% endblock %}
 
 {% block body %}
-    <style>
-        .example-wrapper { margin: 1em auto; max-width: 800px; width: 95%; font: 18px/1.5 sans-serif; }
-        .example-wrapper code { background: #F5F5F5; padding: 2px 6px; }
-    </style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ZuZu Home</title>
+    <link rel="stylesheet" href="css/style.css">
 
-    <div class="example-wrapper">
-        <h1>Hello {{ controller_name }}! ✅</h1>
+</head>
+<body>
 
-        This friendly message is coming from:
-        <ul>
-            <li>Your controller at <code><a href="{{ 'C:/xampp/htdocs/example_2j/src/Controller/TaskController.php'|file_link(0) }}">src/Controller/TaskController.php</a></code></li>
-            <li>Your template at <code><a href="{{ 'C:/xampp/htdocs/example_2j/templates/task/index.html.twig'|file_link(0) }}">templates/task/index.html.twig</a></code></li>
-        </ul>
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-collapse  bg-light">
+    <div class="container">
+        <a class="navbar-brand text-danger" href="#"><h1>Piz<span class="text-success">za</span></h1></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse  d-flex justify-content-end" id="navbarSupportedContent">
+            <ul class="navbar-nav d-flex justify-content-end">
+
+                <li class="nav-item ">
+                    <a class="nav-link text-dark" href="contact">contact</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link text-dark" href="#" tabindex="-1" aria-disabled="false">login</a>
+                </li>
+            </ul>
+
+        </div>
+
     </div>
+</nav>
+</body>
 {% endblock %}
