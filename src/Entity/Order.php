@@ -3,6 +3,8 @@
 namespace App\Entity;
 
 use App\Repository\OrderRepository;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
 
 #[ORM\Entity(repositoryClass: OrderRepository::class)]
@@ -31,6 +33,14 @@ class Order
 
     #[ORM\Column(length: 255)]
     private ?string $adress = null;
+
+    #[ORM\OneToMany(mappedBy: 'Order_id', targetEntity: category::class)]
+    private Collection $Categoty;
+
+    public function __construct()
+    {
+        $this->Categoty = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -105,6 +115,36 @@ class Order
     public function setAdress(string $adress): self
     {
         $this->adress = $adress;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, category>
+     */
+    public function getCategoty(): Collection
+    {
+        return $this->Categoty;
+    }
+
+    public function addCategoty(category $categoty): self
+    {
+        if (!$this->Categoty->contains($categoty)) {
+            $this->Categoty->add($categoty);
+            $categoty->setOrderId($this);
+        }
+
+        return $this;
+    }
+
+    public function removeCategoty(category $categoty): self
+    {
+        if ($this->Categoty->removeElement($categoty)) {
+            // set the owning side to null (unless already changed)
+            if ($categoty->getOrderId() === $this) {
+                $categoty->setOrderId(null);
+            }
+        }
 
         return $this;
     }

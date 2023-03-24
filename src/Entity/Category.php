@@ -22,6 +22,9 @@ class Category
     #[ORM\Column(length: 255)]
     private ?string $description = null;
 
+    #[ORM\ManyToOne(inversedBy: 'Categoty')]
+    private ?Order $Order_id = null;
+
     public function getId(): ?int
     {
         return $this->id;
@@ -59,6 +62,18 @@ class Category
     public function setDescription(string $description): self
     {
         $this->description = $description;
+
+        return $this;
+    }
+
+    public function getOrderId(): ?Order
+    {
+        return $this->Order_id;
+    }
+
+    public function setOrderId(?Order $Order_id): self
+    {
+        $this->Order_id = $Order_id;
 
         return $this;
     }
