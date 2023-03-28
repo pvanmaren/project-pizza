@@ -34,13 +34,12 @@ class Order
     #[ORM\Column(length: 255)]
     private ?string $adress = null;
 
-    #[ORM\OneToMany(mappedBy: 'Order_id', targetEntity: category::class)]
-    private Collection $Categoty;
+    #[ORM\ManyToOne(inversedBy: 'orders')]
+    private ?product $product = null;
 
-    public function __construct()
-    {
-        $this->Categoty = new ArrayCollection();
-    }
+
+
+
 
     public function getId(): ?int
     {
@@ -119,33 +118,34 @@ class Order
         return $this;
     }
 
-    /**
-     * @return Collection<int, category>
-     */
-    public function getCategoty(): Collection
+    public function getCategory(): ?category
     {
-        return $this->Categoty;
+        return $this->category;
     }
 
-    public function addCategoty(category $categoty): self
+    public function setCategory(?category $category): self
     {
-        if (!$this->Categoty->contains($categoty)) {
-            $this->Categoty->add($categoty);
-            $categoty->setOrderId($this);
-        }
+        $this->category = $category;
 
         return $this;
     }
 
-    public function removeCategoty(category $categoty): self
+    public function getProduct(): ?product
     {
-        if ($this->Categoty->removeElement($categoty)) {
-            // set the owning side to null (unless already changed)
-            if ($categoty->getOrderId() === $this) {
-                $categoty->setOrderId(null);
-            }
-        }
+        return $this->product;
+    }
+
+    public function setProduct(?product $product): self
+    {
+        $this->product = $product;
 
         return $this;
     }
+
+
+
+
+
+
+
 }

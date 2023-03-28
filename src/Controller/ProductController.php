@@ -8,12 +8,13 @@ use Doctrine\Persistence\ManagerRegistry;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
+use Doctrine\ORM\EntityManagerInterface;
 
 class ProductController extends AbstractController
 {
-    #[Route('/products')]
+    #[Route('/products/{id}')]
     public function products(ManagerRegistry $doctrine) :Response {
-        $products=$doctrine->getRepository(Category::class)->findAll();
-        return $this->render('bezoeker/products.html.twig',['products'=>$products]);
+        $categories=$doctrine->getRepository(Category::class)->findAll();
+        return $this->render('bezoeker/products.html.twig',['categories'=>$categories]);
     }
 }
