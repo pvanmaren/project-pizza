@@ -16,8 +16,6 @@ class Order
     #[ORM\Column]
     private ?int $id = null;
 
-    #[ORM\Column(length: 255)]
-    private ?string $pizza = null;
 
     #[ORM\Column(length: 255)]
     private ?string $size = null;
@@ -35,7 +33,7 @@ class Order
     private ?string $adress = null;
 
     #[ORM\ManyToOne(inversedBy: 'orders')]
-    private ?product $product = null;
+    private ?Product $product = null;
 
 
 
@@ -46,17 +44,8 @@ class Order
         return $this->id;
     }
 
-    public function getPizza(): ?string
-    {
-        return $this->pizza;
-    }
 
-    public function setPizza(string $pizza): self
-    {
-        $this->pizza = $pizza;
 
-        return $this;
-    }
 
     public function getSize(): ?string
     {
@@ -130,12 +119,12 @@ class Order
         return $this;
     }
 
-    public function getProduct(): ?product
+    public function getProduct(): ?Product
     {
         return $this->product;
     }
 
-    public function setProduct(?product $product): self
+    public function setProduct(?Product $product): self
     {
         $this->product = $product;
 

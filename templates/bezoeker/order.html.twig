@@ -1,18 +1,5 @@
 {% extends 'base.html.twig' %}
 {% block body %}
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ZuZu Home</title>
-    <link rel="stylesheet" href="css/style.css">
-
-</head>
-<body>
-
-<!-- Navbar -->
 <nav class="navbar navbar-expand-lg navbar-collapse  bg-light">
     <div class="container">
         <a class="navbar-brand text-danger" href="#"><h1>Piz<span class="text-success">za</span></h1></a>
@@ -27,15 +14,40 @@
                 </li>
 
                 <li class="nav-item">
-                    <a class="nav-link text-dark" href="#" tabindex="-1" aria-disabled="false">login</a>
+                    <a class="nav-link text-dark" href="/login" tabindex="-1" aria-disabled="false">login</a>
                 </li>
             </ul>
 
         </div>
-        {{ form(form) }}
-
     </div>
 </nav>
 </div>
+
+
+
+
+    {% for msg in app.session.flashBag.get('succes') %}
+        <div class="alert alert-success">
+            {{ msg }}
+        </div>
+    {% endfor %}
+
+    {% block cards %}
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-8">
+                    <h1>Order</h1>
+                    {{ form_start(orderForm, {'attr':{'novalidate':'novalidate'}}) }}
+                    {{ form_widget(orderForm) }}
+                    {{ form_end(orderForm) }}
+                </div>
+            </div>
+        </div>
+    {% endblock %}
+    <!-- for loop-->
+
 </body>
+</html>
+</body>
+</html>
 {% endblock %}

@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block body %}
+
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>ZuZu Home</title>
+        <link rel="stylesheet" href="css/style.css">
+
+    </head>
+<body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-collapse  bg-light">
+        <div class="container">
+            <a class="navbar-brand text-danger" href="#"><h1>Piz<span class="text-success">za</span></h1></a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse  d-flex justify-content-end" id="navbarSupportedContent">
+                <ul class="navbar-nav d-flex justify-content-end">
+
+                    <li class="nav-item ">
+                        <a class="nav-link text-dark" href="contact">contact</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link text-dark" href="/login" tabindex="-1" aria-disabled="false">login</a>
+                    </li>
+                </ul>
+
+            </div>
+        </div>
+    </nav>
+    {% block cards %}
+    <div class="row row-cols-1 row-cols-md-2 row-cols-lg-5 g-4 mt-3 justify-content-center container-fluid">
+        <table class="table bg-light">
+            <tr>
+                <th>
+                    fname
+                </th>
+                <th>
+                    lname
+                </th>
+                <th>
+                    adress
+                </th>
+                <th>
+                    email
+                </th>
+                <th>
+                    pizza naam
+                </th>
+                <th>
+                    size
+                </th>
+            </tr>
+            {% for order in orders %}
+                <tr>
+                    <td>
+                        {{ order.firstName }}</td>
+                    <td>
+                        {{ order.lastName }}</td>
+                    <td>
+                        {{ order.email }}</td>
+                    <td>
+                        {{ order.adress }}</td>
+
+                    <td>
+                        {{ order.Product.Name }}</td>
+                    <td>
+                        {{ order.Size }}</td></tr>
+            {% endfor %}</table></div>
+{% endblock %}
+{% endblock %}

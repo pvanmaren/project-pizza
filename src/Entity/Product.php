@@ -22,7 +22,7 @@ class Product
     private ?int $price = null;
 
     #[ORM\ManyToOne(inversedBy: 'products')]
-    private ?category $category = null;
+    private ?Category $category = null;
 
     #[ORM\OneToMany(mappedBy: 'product', targetEntity: Order::class)]
     private Collection $orders;
@@ -61,12 +61,12 @@ class Product
         return $this;
     }
 
-    public function getCategory(): ?category
+    public function getCategory(): ?Category
     {
         return $this->category;
     }
 
-    public function setCategory(?category $category): self
+    public function setCategory(?Category $category): self
     {
         $this->category = $category;
 

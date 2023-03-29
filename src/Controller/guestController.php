@@ -6,9 +6,11 @@ use App\Entity\Category;
 use App\Entity\Order;
 use App\Entity\Product;
 use App\Form\OrderType;
+use App\Repository\OrderRepository;
 use Doctrine\ORM\EntityManagerInterface;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Annotation\Route;
 
 class guestController extends AbstractController
@@ -37,31 +39,39 @@ class guestController extends AbstractController
         ]);
     }
 
-    #[Route("/order/{id}", name: "order")]
-    public function showOrder(EntityManagerInterface $entityManager, Request $request, int $id)
+    #[Route('/order/{id}', name: 'order')]
+    public function Order(Request $request, EntityManagerInterface $em, $id): Response
     {
-        $pizza = $entityManager->getRepository(Product::class)->find($id);
+        $pizza = $em->getRepository(Product::class)->find($id);
         $order = new Order();
-
         $form = $this->createForm(OrderType::class, $order);
 
         $form->handleRequest($request);
+
         if ($form->isSubmitted() && $form->isValid()) {
             $order = $form->getData();
-            $order->setPizza($pizza);
-            $entityManager->persist($order);
-            $entityManager->flush();
-            $this->addFlash('success' , 'merry christmas' );
-            return $this->redirectToRoute('contact');
+            $order->setProduct($pizza);
+            $em->persist($order);
+            $em->flush();
 
-
+            $this->addFlash('succes', 'Uw bestelling is doorgestuurd!');
+            //  return $this->redirectToRoute('app_index');
         }
 
-        return $this->render("order.html.twig", [
-            'pizza' => $pizza,
-            'form' => $form,
-        ]);
+        return $this->renderForm('bezoeker/order.html.twig', [
+            'controller_name' => 'PizzaController',
+            'orderForm' => $form
 
+        ]);
     }
 
+
+    #[Route('/login', name: 'login')]
+    public function login(OrderRepository $orderRepository): Response
+    {
+        $orders = $orderRepository->findAll();
+        return $this->render('bezoeker/login.html.twig',
+            ['orders' => $orders]);
+    }
 }
+
