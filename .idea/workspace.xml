@@ -5,23 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="c591a0e0-5e51-4730-80ee-7bfa06de1978" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/templates/bezoeker/login.html.twig" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/templates/bezoeker/order.html.twig" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/packages/twig.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/config/packages/twig.yaml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/db/pizzas.sql" beforeDir="false" afterPath="$PROJECT_DIR$/db/pizzas.sql" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/BestellenController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/PizzaController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/ProductController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/categorycontroller.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/contactController.php" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Controller/guestController.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Controller/guestController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Order.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Order.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Entity/Product.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Entity/Product.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bezoeker/bestellen.html.twig" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bezoeker/home.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bezoeker/home.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bezoeker/pizzas.html.twig" beforeDir="false" afterPath="$PROJECT_DIR$/templates/bezoeker/pizzas.html.twig" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/templates/bezoeker/products.html.twig" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Form/OrderType.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/Form/OrderType.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -40,7 +25,7 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="PhpWorkspaceProjectConfiguration">
+  <component name="PhpWorkspaceProjectConfiguration" interpreter_name="C:\xampp\php\php.exe">
     <include_path>
       <path value="$PROJECT_DIR$/vendor/composer" />
       <path value="$PROJECT_DIR$/vendor/psr/cache" />
@@ -178,20 +163,20 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "C:/Users/SD Student/Documents/GitHub/project-pizza/db",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/SD Student/Documents/GitHub/project-pizza/db&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\SD Student\Documents\GitHub\project-pizza\public" />
@@ -233,6 +218,8 @@
       <workItem from="1679654021727" duration="1293000" />
       <workItem from="1679994419205" duration="8437000" />
       <workItem from="1680092775508" duration="4605000" />
+      <workItem from="1694697081669" duration="141000" />
+      <workItem from="1697013450381" duration="2933000" />
     </task>
     <servers />
   </component>
